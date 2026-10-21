@@ -1,0 +1,15 @@
+# SUNFLEX-EMS · Reto 1 "Aprovechamiento de la energía excedentaria"
+# Versiones probadas en una instalación limpia (2026-10-19, Python 3.13, linux/x86_64).
+# Streamlit Community Cloud: subir este archivo tal cual; el builder resuelve wheels.
+streamlit==1.66.0
+pypsa==1.4.0            # API 1.x: n.static(), n.add(...), n.optimize(solver_name="highs")
+linopy==0.10.0          # traer highspy como solver por defecto
+highspy==1.15.1         # LP/MILP del OPF (sin Cbc, sin Gurobi)
+plotly==6.0.1           # gráficos de la app (el repositorio base usa plotly, no altair)
+pandas==3.0.6
+numpy==2.3.5
+xarray==2026.9.0         # ⚠ piso duro: con xarray<2026 PyPSA 1.4 muere al armar el balance
+                         #   nodal («Cannot interpret '<StringDtype(na_value=nan)>'»). Las imágenes
+                         #   base de Python/Streamlit traen 2025.x, así que este pin es lo que hace
+                         #   que el deploy funcione a la primera.
+scipy==1.17.1           # scipy.optimize.minimize lo usa algorithms_reto1.py

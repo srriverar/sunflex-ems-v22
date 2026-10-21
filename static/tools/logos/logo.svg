@@ -1,0 +1,18 @@
+<svg width="512" height="512" viewBox="0 0 680 680" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Arched A Logo</title>
+  <desc>A sleek white letter A whose legs follow the circle curvature, spanning 80% of the circle height</desc>
+
+  <circle cx="340" cy="340" r="300" fill="#0052cc"/>
+
+  <!-- Left leg: 113° to 245° clockwise on r=250 -->
+  <path d="M 242,570 A 250,250 0 0 1 234,113" fill="none" stroke="white" stroke-width="46" stroke-linecap="butt"/>
+
+  <!-- Top arch: 245° to 295° clockwise on r=250 -->
+  <path d="M 234,113 A 250,250 0 0 1 446,113" fill="none" stroke="white" stroke-width="46" stroke-linecap="butt"/>
+
+  <!-- Right leg: 295° to 67° clockwise on r=250 -->
+  <path d="M 446,113 A 250,250 0 0 1 438,570" fill="none" stroke="white" stroke-width="46" stroke-linecap="butt"/>
+
+  <!-- Crossbar -->
+  <line x1="113" y1="354" x2="567" y2="354" stroke="white" stroke-width="42" stroke-linecap="round"/>
+</svg>

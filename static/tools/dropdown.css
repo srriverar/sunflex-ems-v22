@@ -1,0 +1,125 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   Dropdowns: the one look for every dropdown on the site
+   Built on the dark.css / light.css tokens. shared.css @imports this file;
+   the home page, which does not load shared.css, links it directly. Pair it
+   with dropdown.js, which draws a plain select's open list.
+
+   Which kind a list gets depends on the list, not on the tool:
+     • A short, fixed list (periods, currencies, a scenario, a font, a
+       handful of loaded tickers): a plain <select>, no search. It needs no
+       class: every select takes the field look below. dropdown.js opens its
+       list in the panel further down when it is clicked with a mouse; the
+       keyboard and touch keep the browser's own picker, which is the
+       accessible and thumb-friendly one there.
+     • A database-sized list a reader would otherwise scroll through one by
+       one (hundreds of cities, time zones, PowerFactory variables): a
+       searchable combobox, a .combo-input with a .combo-list under it.
+       Every currency in the world counts: SharedDropdown.searchable
+       (dropdown.js) turns a select into one and keeps the select as the
+       field of record.
+   A tool may size a dropdown (width, padding, font-size, and --radius-sm on
+   a compact one) but never re-colour, re-border or re-font it.
+   ────────────────────────────────────────────────────────────────────────── */
+
+:root{--sel-chevron:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23A8B6CF'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");}
+body.light{--sel-chevron:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%237F8C8D'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");}
+
+/* ── The field ─────────────────────────────────────────────────────────────
+   :where() keeps these at zero specificity, so a tool's sizing rule wins
+   without needing to repeat (or fight) the rest. The font is named, not
+   inherited, so a select inside a mono table cell or an uppercase header
+   still reads like every other one. */
+:where(select),
+:where(.combo-input){
+  background-color:var(--input-bg);
+  border:1.5px solid var(--border);
+  border-radius:var(--radius-md);
+  color:var(--text);
+  font-family:'DM Sans',system-ui,-apple-system,sans-serif;
+  font-size:.92rem;
+  font-weight:500;
+  font-style:normal;
+  letter-spacing:normal;
+  text-transform:none;
+  padding:10px 13px;
+  max-width:100%;
+  outline:none;
+  transition:border-color var(--motion-fast,150ms);
+}
+/* The chevron, and the room it needs, at a higher specificity: a tool that
+   styles its select with a shared input class (`.num-input{background:…}`)
+   would otherwise wipe it. A compact select moves it in with --sel-pad and
+   --sel-chev rather than re-declaring it. */
+select:not([multiple]):not([size]){
+  appearance:none;-webkit-appearance:none;
+  background-image:var(--sel-chevron);
+  background-repeat:no-repeat;
+  background-position:right var(--sel-chev,10px) center;
+  padding-right:var(--sel-pad,30px);
+  cursor:pointer;
+  text-overflow:ellipsis;
+}
+:where(select):focus,
+:where(.combo-input):focus{border-color:var(--accent);}
+:where(select):disabled{opacity:.55;cursor:not-allowed;}
+:where(.combo-input)::placeholder{color:var(--muted);font-weight:400;}
+/* A list box (multiple, or a size) shows its rows inline: no chevron. */
+:where(select[multiple]),:where(select[size]){padding:4px;}
+/* The browser's own picker (keyboard, touch, and every browser before
+   dropdown.js runs) cannot read CSS variables on <option>, so its colours
+   are written out. */
+:where(select) option,:where(select) optgroup{background:#162033;color:#EAF1FF;font-weight:400;}
+body.light :where(select) option,body.light :where(select) optgroup{background:#FFFFFF;color:#2D3436;}
+
+/* The design system's named select: a full-width form field. */
+.sel-input{width:100%;}
+/* A compact control: toolbars, table cells, a row of small fields. */
+.sel-sm{padding:6px 10px;font-size:.82rem;border-radius:var(--radius-sm);--sel-pad:26px;--sel-chev:8px;}
+
+/* ── The open list ─────────────────────────────────────────────────────────
+   The same panel for a select's list (dropdown.js) and a combobox's. A
+   combobox places its own list; these rules are only how it looks. */
+.combo-list{
+  background:var(--panel);
+  border:1.5px solid var(--border);
+  border-radius:var(--radius-sm);
+  box-shadow:var(--shadow-lg);
+  padding:4px;
+  max-height:280px;
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  /* Over any editor panel or floating bar (canvas bar 2000, tours 9000),
+     under the shared tooltip. */
+  z-index:9500;
+  font-family:'DM Sans',system-ui,-apple-system,sans-serif;
+  font-size:.86rem;
+  font-weight:400;
+  font-style:normal;
+  line-height:1.35;
+  letter-spacing:normal;
+  text-transform:none;
+  text-align:left;
+  white-space:normal;
+  color:var(--text);
+}
+/* A row: the label on the left, an optional chip on the right. The row under
+   the mouse or the arrow keys is filled with the accent, as .seg-btn.active
+   is; the chosen one is in bold. */
+.combo-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 10px;border-radius:5px;cursor:pointer;}
+.combo-opt.selected{font-weight:600;}
+.combo-opt:hover,.combo-opt.focused{background:var(--accent);color:var(--text-inv);}
+.combo-opt.disabled{opacity:.45;cursor:default;}
+.combo-opt.disabled:hover{background:none;color:inherit;}
+.combo-main{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+/* A label with a second line under it: wrap both in .combo-text. */
+.combo-text{display:flex;flex-direction:column;min-width:0;}
+/* The second line (a variable's description, a time zone's offset). */
+.combo-sub{display:block;font-size:.76rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;}
+.combo-opt:hover .combo-sub,.combo-opt.focused .combo-sub{color:inherit;opacity:.85;}
+.combo-chip{flex-shrink:0;max-width:48%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:1px 8px;border-radius:var(--radius-pill);background:var(--input-bg);border:1px solid var(--border);font-size:.72rem;font-weight:500;color:var(--muted);}
+.combo-opt:hover .combo-chip,.combo-opt.focused .combo-chip{color:inherit;border-color:currentColor;background:transparent;}
+/* An <optgroup>'s label, and a combobox's section header. */
+.combo-group{padding:8px 10px 3px;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);cursor:default;}
+.combo-group:first-child{padding-top:4px;}
+.combo-empty{padding:8px 10px;font-size:.82rem;color:var(--muted);}

@@ -1,0 +1,23 @@
+# no son código ni datos: son estado local
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+Thumbs.db
+
+# Node no es dependencia de la app (solo del check local tools/verify_casepack.mjs)
+node_modules/
+package-lock.json
+
+# cachés del navegador / del entorno
+*.log
+.streamlit/secrets.toml
+
+# ⚠ NO se ignoran: .streamlit/config.toml (enableStaticServing), output/ (evidencia
+#   legible sin correr nada) y static/tools/*/sunflex-{cases,boot}.js (generados,
+#   el jurado debe poder leerlos sin instalar PyPSA).

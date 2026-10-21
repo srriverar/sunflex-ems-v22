@@ -1,0 +1,3282 @@
+{
+"Castilla · base": {
+"v": 1,
+"name": "Castilla · base · 15 min PyPSA",
+"next": 10,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Castilla 21 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 10.83,
+"q_set": 2.166,
+"p_nom": 12.7,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 10.83 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 10.83,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 12.8,
+"q_set": 5.453,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 20.24 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 20.24,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 9,
+"name": "Respaldo 6 MW ×2",
+"bus": 2,
+"control": "PQ",
+"p_set": 0.0,
+"p_nom": 12.0,
+"at": [
+-9,
+0
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 28.2,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Castilla · venta": {
+"v": 1,
+"name": "Castilla · venta · 15 min PyPSA",
+"next": 10,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Castilla 21 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 10.83,
+"q_set": 2.166,
+"p_nom": 12.7,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 10.83 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 10.83,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 12.8,
+"q_set": 5.453,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 20.24 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 20.24,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 9,
+"name": "Respaldo 6 MW ×2",
+"bus": 2,
+"control": "PQ",
+"p_set": 0.0,
+"p_nom": 12.0,
+"at": [
+-9,
+0
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 28.2,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Castilla · bess_std": {
+"v": 1,
+"name": "Castilla · bess_std · 15 min PyPSA",
+"next": 10,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Castilla 21 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 10.884,
+"q_set": 2.177,
+"p_nom": 12.7,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 10.83 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 10.83,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 12.8,
+"q_set": 5.453,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 20.24 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 20.24,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 9,
+"name": "Respaldo 6 MW ×2",
+"bus": 2,
+"control": "PQ",
+"p_set": 0.0,
+"p_nom": 12.0,
+"at": [
+-9,
+0
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 28.2,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Castilla · piloto": {
+"v": 1,
+"name": "Castilla · piloto · 15 min PyPSA",
+"next": 12,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Castilla 21 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 10.884,
+"q_set": 2.177,
+"p_nom": 12.7,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 10.83 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 10.83,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "StorageUnit",
+"id": 9,
+"name": "BESS 0.5MW/1MWh (carga)",
+"bus": 1,
+"p_set": 0.054,
+"q_set": -0.016,
+"p_nom": 0.5,
+"at": [
+5,
+1
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 12.8,
+"q_set": 5.453,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Generator",
+"id": 11,
+"name": "Respaldo 6 MW ×2",
+"bus": 2,
+"control": "PQ",
+"p_set": 0.0,
+"p_nom": 12.0,
+"at": [
+-9,
+0
+]
+},
+{
+"c": "Load",
+"id": 10,
+"name": "DR diferida 3.0 MW",
+"bus": 2,
+"p_set": 3.0,
+"q_set": 0.0,
+"at": [
+5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 20.24 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 20.24,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 28.2,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Castilla · escala": {
+"v": 1,
+"name": "Castilla · escala · 15 min PyPSA",
+"next": 12,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Castilla 21 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 12.695,
+"q_set": 2.539,
+"p_nom": 12.7,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 10.83 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 10.83,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "StorageUnit",
+"id": 9,
+"name": "BESS 3MW/6MWh (carga)",
+"bus": 1,
+"p_set": 0.323,
+"q_set": -0.097,
+"p_nom": 3.0,
+"at": [
+5,
+1
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 12.8,
+"q_set": 5.453,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Generator",
+"id": 11,
+"name": "Respaldo 6 MW ×2",
+"bus": 2,
+"control": "PQ",
+"p_set": 0.0,
+"p_nom": 12.0,
+"at": [
+-9,
+0
+]
+},
+{
+"c": "Load",
+"id": 10,
+"name": "DR diferida 3.0 MW",
+"bus": 2,
+"p_set": 3.0,
+"q_set": 0.0,
+"at": [
+5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 20.24 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 20.24,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 28.2,
+"at": [
+3,
+1
+]
+}
+]
+},
+"San Fernando · base": {
+"v": 1,
+"name": "San Fernando · base · 15 min PyPSA",
+"next": 10,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "San Fernando 61 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 29.3,
+"q_set": 5.86,
+"p_nom": 34.46,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 29.3 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 29.3,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 32.8,
+"q_set": 13.973,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 51.86 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 51.86,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 9,
+"name": "Respaldo 12 MW ×2",
+"bus": 2,
+"control": "PQ",
+"p_set": 0.0,
+"p_nom": 24.0,
+"at": [
+-9,
+0
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 72.2,
+"at": [
+3,
+1
+]
+}
+]
+},
+"San Fernando · venta": {
+"v": 1,
+"name": "San Fernando · venta · 15 min PyPSA",
+"next": 10,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "San Fernando 61 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 29.3,
+"q_set": 5.86,
+"p_nom": 34.46,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 29.3 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 29.3,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 32.8,
+"q_set": 13.973,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 51.86 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 51.86,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 9,
+"name": "Respaldo 12 MW ×2",
+"bus": 2,
+"control": "PQ",
+"p_set": 0.0,
+"p_nom": 24.0,
+"at": [
+-9,
+0
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 72.2,
+"at": [
+3,
+1
+]
+}
+]
+},
+"San Fernando · bess_std": {
+"v": 1,
+"name": "San Fernando · bess_std · 15 min PyPSA",
+"next": 10,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "San Fernando 61 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 29.354,
+"q_set": 5.871,
+"p_nom": 34.46,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 29.3 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 29.3,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 32.8,
+"q_set": 13.973,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 51.86 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 51.86,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 9,
+"name": "Respaldo 12 MW ×2",
+"bus": 2,
+"control": "PQ",
+"p_set": 0.0,
+"p_nom": 24.0,
+"at": [
+-9,
+0
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 72.2,
+"at": [
+3,
+1
+]
+}
+]
+},
+"San Fernando · piloto": {
+"v": 1,
+"name": "San Fernando · piloto · 15 min PyPSA",
+"next": 12,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "San Fernando 61 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 29.354,
+"q_set": 5.871,
+"p_nom": 34.46,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 29.3 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 29.3,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "StorageUnit",
+"id": 9,
+"name": "BESS 0.5MW/1MWh (carga)",
+"bus": 1,
+"p_set": 0.054,
+"q_set": -0.016,
+"p_nom": 0.5,
+"at": [
+5,
+1
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 32.8,
+"q_set": 13.973,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Generator",
+"id": 11,
+"name": "Respaldo 12 MW ×2",
+"bus": 2,
+"control": "PQ",
+"p_set": 0.0,
+"p_nom": 24.0,
+"at": [
+-9,
+0
+]
+},
+{
+"c": "Load",
+"id": 10,
+"name": "DR diferida 3.0 MW",
+"bus": 2,
+"p_set": 3.0,
+"q_set": 0.0,
+"at": [
+5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 51.86 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 51.86,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 72.2,
+"at": [
+3,
+1
+]
+}
+]
+},
+"San Fernando · escala": {
+"v": 1,
+"name": "San Fernando · escala · 15 min PyPSA",
+"next": 12,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "San Fernando 61 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 32.345,
+"q_set": 6.469,
+"p_nom": 34.46,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 29.3 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 29.3,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "StorageUnit",
+"id": 9,
+"name": "BESS 8MW/16MWh (carga)",
+"bus": 1,
+"p_set": 0.862,
+"q_set": -0.259,
+"p_nom": 8.0,
+"at": [
+5,
+1
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 32.8,
+"q_set": 13.973,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Generator",
+"id": 11,
+"name": "Respaldo 12 MW ×2",
+"bus": 2,
+"control": "PQ",
+"p_set": 0.0,
+"p_nom": 24.0,
+"at": [
+-9,
+0
+]
+},
+{
+"c": "Load",
+"id": 10,
+"name": "DR diferida 3.0 MW",
+"bus": 2,
+"p_set": 3.0,
+"q_set": 0.0,
+"at": [
+5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 51.86 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 51.86,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 72.2,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Brisas · base": {
+"v": 1,
+"name": "Brisas · base · 15 min PyPSA",
+"next": 9,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Brisas 26 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 13.0,
+"q_set": 2.6,
+"p_nom": 15.23,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 13 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 13.0,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 14.4,
+"q_set": 6.134,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 22.77 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 22.77,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 31.7,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Brisas · venta": {
+"v": 1,
+"name": "Brisas · venta · 15 min PyPSA",
+"next": 9,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Brisas 26 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 13.0,
+"q_set": 2.6,
+"p_nom": 15.23,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 13 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 13.0,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 14.4,
+"q_set": 6.134,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 22.77 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 22.77,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 31.7,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Brisas · bess_std": {
+"v": 1,
+"name": "Brisas · bess_std · 15 min PyPSA",
+"next": 9,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Brisas 26 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 13.054,
+"q_set": 2.611,
+"p_nom": 15.23,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 13 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 13.0,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 14.4,
+"q_set": 6.134,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 22.77 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 22.77,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 31.7,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Brisas · piloto": {
+"v": 1,
+"name": "Brisas · piloto · 15 min PyPSA",
+"next": 11,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Brisas 26 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 13.054,
+"q_set": 2.611,
+"p_nom": 15.23,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 13 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 13.0,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "StorageUnit",
+"id": 9,
+"name": "BESS 0.5MW/1MWh (carga)",
+"bus": 1,
+"p_set": 0.054,
+"q_set": -0.016,
+"p_nom": 0.5,
+"at": [
+5,
+1
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 14.4,
+"q_set": 6.134,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Load",
+"id": 10,
+"name": "DR diferida 2.5 MW",
+"bus": 2,
+"p_set": 2.5,
+"q_set": 0.0,
+"at": [
+5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 22.77 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 22.77,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 31.7,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Brisas · escala": {
+"v": 1,
+"name": "Brisas · escala · 15 min PyPSA",
+"next": 11,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Brisas 26 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 14.931,
+"q_set": 2.986,
+"p_nom": 15.23,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 13 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 13.0,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "StorageUnit",
+"id": 9,
+"name": "BESS 4MW/8MWh (carga)",
+"bus": 1,
+"p_set": 0.431,
+"q_set": -0.129,
+"p_nom": 4.0,
+"at": [
+5,
+1
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 14.4,
+"q_set": 6.134,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Load",
+"id": 10,
+"name": "DR diferida 2.5 MW",
+"bus": 2,
+"p_set": 2.5,
+"q_set": 0.0,
+"at": [
+5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 22.77 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 22.77,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 31.7,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Rubiales · base": {
+"v": 1,
+"name": "Rubiales · base · 15 min PyPSA",
+"next": 9,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Rubiales 100 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 49.6,
+"q_set": 9.92,
+"p_nom": 58.03,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 60.94 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 60.94,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 49.6,
+"q_set": 21.13,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 79.22 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 79.22,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 121.9,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Rubiales · venta": {
+"v": 1,
+"name": "Rubiales · venta · 15 min PyPSA",
+"next": 9,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Rubiales 100 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 52.6,
+"q_set": 10.52,
+"p_nom": 58.03,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 60.94 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 60.94,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 49.6,
+"q_set": 21.13,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 79.22 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 79.22,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 121.9,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Rubiales · bess_std": {
+"v": 1,
+"name": "Rubiales · bess_std · 15 min PyPSA",
+"next": 9,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Rubiales 100 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 49.654,
+"q_set": 9.931,
+"p_nom": 58.03,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 60.94 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 60.94,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 49.6,
+"q_set": 21.13,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 79.22 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 79.22,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 121.9,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Rubiales · piloto": {
+"v": 1,
+"name": "Rubiales · piloto · 15 min PyPSA",
+"next": 11,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Rubiales 100 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 55.372,
+"q_set": 11.074,
+"p_nom": 58.03,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 60.94 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 60.94,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "StorageUnit",
+"id": 9,
+"name": "BESS 0.5MW/1MWh (carga)",
+"bus": 1,
+"p_set": 0.054,
+"q_set": -0.016,
+"p_nom": 0.5,
+"at": [
+5,
+1
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 49.6,
+"q_set": 21.13,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Load",
+"id": 10,
+"name": "DR diferida 3.0 MW",
+"bus": 2,
+"p_set": 3.0,
+"q_set": 0.0,
+"at": [
+5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 79.22 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 79.22,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 121.9,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Rubiales · escala": {
+"v": 1,
+"name": "Rubiales · escala · 15 min PyPSA",
+"next": 11,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 34.5 kV",
+"v_nom": 34.5,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Rubiales 100 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 58.034,
+"q_set": 11.607,
+"p_nom": 58.03,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 60.94 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.1096,
+"x": 0.4775,
+"s_nom": 60.94,
+"length": 1.2,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "StorageUnit",
+"id": 9,
+"name": "BESS 7MW/14MWh (carga)",
+"bus": 1,
+"p_set": 0.0,
+"q_set": -0.0,
+"p_nom": 7.0,
+"at": [
+5,
+1
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 49.6,
+"q_set": 21.13,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Load",
+"id": 10,
+"name": "DR diferida 3.0 MW",
+"bus": 2,
+"p_set": 3.0,
+"q_set": 0.0,
+"at": [
+5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 79.22 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 79.22,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 121.9,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Refinerías · base": {
+"v": 1,
+"name": "Refinerías · base · 15 min PyPSA",
+"next": 9,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 13.8 kV",
+"v_nom": 13.8,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Refinerías 39 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 20.54,
+"q_set": 4.108,
+"p_nom": 22.49,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 20.54 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.0548,
+"x": 0.2387,
+"s_nom": 20.54,
+"length": 0.6,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 236.0,
+"q_set": 100.536,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 368 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 368.0,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 512.0,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Refinerías · venta": {
+"v": 1,
+"name": "Refinerías · venta · 15 min PyPSA",
+"next": 9,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 13.8 kV",
+"v_nom": 13.8,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Refinerías 39 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 20.54,
+"q_set": 4.108,
+"p_nom": 22.49,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 20.54 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.0548,
+"x": 0.2387,
+"s_nom": 20.54,
+"length": 0.6,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 236.0,
+"q_set": 100.536,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 368 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 368.0,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 512.0,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Refinerías · bess_std": {
+"v": 1,
+"name": "Refinerías · bess_std · 15 min PyPSA",
+"next": 9,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 13.8 kV",
+"v_nom": 13.8,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Refinerías 39 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 20.594,
+"q_set": 4.119,
+"p_nom": 22.49,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 20.54 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.0548,
+"x": 0.2387,
+"s_nom": 20.54,
+"length": 0.6,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 236.0,
+"q_set": 100.536,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 368 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 368.0,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 512.0,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Refinerías · piloto": {
+"v": 1,
+"name": "Refinerías · piloto · 15 min PyPSA",
+"next": 11,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 13.8 kV",
+"v_nom": 13.8,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Refinerías 39 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 22.488,
+"q_set": 4.498,
+"p_nom": 22.49,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 20.54 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.0548,
+"x": 0.2387,
+"s_nom": 20.54,
+"length": 0.6,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "StorageUnit",
+"id": 9,
+"name": "BESS 0.5MW/1MWh (carga)",
+"bus": 1,
+"p_set": 0.0,
+"q_set": -0.0,
+"p_nom": 0.5,
+"at": [
+5,
+1
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 236.0,
+"q_set": 100.536,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Load",
+"id": 10,
+"name": "DR diferida 3.0 MW",
+"bus": 2,
+"p_set": 3.0,
+"q_set": 0.0,
+"at": [
+5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 368 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 368.0,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 512.0,
+"at": [
+3,
+1
+]
+}
+]
+},
+"Refinerías · escala": {
+"v": 1,
+"name": "Refinerías · escala · 15 min PyPSA",
+"next": 11,
+"el": [
+{
+"c": "Bus",
+"id": 1,
+"name": "PV 13.8 kV",
+"v_nom": 13.8,
+"v_mag_pu_set": 1.02,
+"at": [
+10,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 2,
+"name": "Campo 13.8 kV",
+"v_nom": 13.8,
+"at": [
+44,
+26,
+10,
+1
+]
+},
+{
+"c": "Bus",
+"id": 3,
+"name": "SE 110 kV · SIN",
+"v_nom": 110.0,
+"v_mag_pu_set": 1.0,
+"at": [
+78,
+26,
+10,
+1
+]
+},
+{
+"c": "Generator",
+"id": 4,
+"name": "Refinerías 39 MWp",
+"bus": 1,
+"control": "PQ",
+"p_set": 22.488,
+"q_set": 4.498,
+"p_nom": 22.49,
+"style": "pv",
+"at": [
+-5,
+1
+]
+},
+{
+"c": "Line",
+"id": 5,
+"name": "RESTRICCIÓN habilitada 20.54 MW",
+"bus0": 1,
+"bus1": 2,
+"r": 0.0548,
+"x": 0.2387,
+"s_nom": 20.54,
+"length": 0.6,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "StorageUnit",
+"id": 9,
+"name": "BESS 6MW/12MWh (carga)",
+"bus": 1,
+"p_set": 0.0,
+"q_set": -0.0,
+"p_nom": 6.0,
+"at": [
+5,
+1
+]
+},
+{
+"c": "Load",
+"id": 6,
+"name": "Proceso / campo",
+"bus": 2,
+"p_set": 236.0,
+"q_set": 100.536,
+"at": [
+-5,
+0
+]
+},
+{
+"c": "Load",
+"id": 10,
+"name": "DR diferida 3.0 MW",
+"bus": 2,
+"p_set": 3.0,
+"q_set": 0.0,
+"at": [
+5,
+0
+]
+},
+{
+"c": "Transformer",
+"id": 7,
+"name": "TR SE 368 MVA",
+"bus0": 2,
+"bus1": 3,
+"x": 0.1,
+"r": 0.005,
+"s_nom": 368.0,
+"at": [
+0,
+0,
+null
+]
+},
+{
+"c": "Generator",
+"id": 8,
+"name": "SIN (slack)",
+"bus": 3,
+"control": "Slack",
+"p_set": 0.0,
+"p_nom": 512.0,
+"at": [
+3,
+1
+]
+}
+]
+}
+}

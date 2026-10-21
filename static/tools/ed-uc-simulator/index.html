@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ED/UC Simulator: Economic Dispatch &amp; Unit Commitment | Adjie Brotools</title>
+<meta name="description" content="Free economic dispatch and unit commitment solver in your browser. Draw a network, solve it hour by hour and read the nodal prices (LMP). PyPSA engine, HiGHS solver.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ED/UC Simulator: Economic Dispatch &amp; Unit Commitment">
+<meta property="og:description" content="Economic Dispatch &amp; Unit Commitment in the browser: draw a network, commit and dispatch its units hour by hour, and read the nodal prices.">
+<meta property="og:url" content="https://tool.adjiebrotots.com/ed-uc-simulator/">
+<meta property="og:site_name" content="Adjie Brotot Tools">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ED/UC Simulator: Economic Dispatch &amp; Unit Commitment">
+<meta name="twitter:description" content="Economic Dispatch &amp; Unit Commitment in the browser: draw a network, commit and dispatch its units hour by hour, and read the nodal prices.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ED/UC Simulator",
+  "url": "https://tool.adjiebrotots.com/ed-uc-simulator/",
+  "description": "Economic Dispatch & Unit Commitment (ED/UC) in your browser: draw a single-line diagram and solve it hour by hour, over one hour to 30 days from any start date. Start-up and shut-down costs, minimum up and down times, ramp limits, weekday and weekend demand profiles, solar and wind profiles, or hourly series from Excel or CSV, storage, line limits and nodal prices. The engine is PSA.js, a JavaScript port of PyPSA, with the HiGHS solver.",
+  "applicationCategory": "EngineeringApplication",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "inLanguage": "en",
+  "alternateName": ["Economic Dispatch & Unit Commitment Simulator", "Economic Dispatch Simulator", "Unit Commitment Simulator", "Online Unit Commitment Solver", "LMP Calculator", "DC Optimal Power Flow Online"],
+  "keywords": "economic dispatch calculator, unit commitment online, unit commitment MILP, locational marginal price calculator, LMP, DC optimal power flow, PJM 5-bus, PyPSA in the browser, HiGHS solver, battery dispatch, merit order",
+  "featureList": [
+    "Drag-and-drop single-line diagram: buses, lines, transformers, generators, solar, wind, grid imports, loads, storage and HVDC links",
+    "Unit commitment as a mixed-integer problem or its linear relaxation, or economic dispatch with every unit held at or above its minimum stable loading",
+    "Generator, solar, wind and grid types, each offering what it can do",
+    "Scalar, linear or quadratic marginal cost curves, solved in straight pieces as PyPSA's piecewise marginal cost",
+    "Start-up, shut-down and stand-by costs, minimum stable loading, minimum up and down times and ramp limits",
+    "Hourly load, solar (summer, spring or autumn, winter, equator) and wind profiles over 1 hour to 30 days from any start date, or your own",
+    "Built-in demand profiles that follow the weekday, with a weekend day of their own",
+    "Daily variability: Monday to Sunday factors that multiply any hourly profile",
+    "Hourly load and generation profiles from Excel or CSV, matched to the horizon by date and time, with a template to fill in",
+    "Line, transformer and link limits with nodal prices (LMP) from a DC optimal power flow",
+    "Batteries and other storage, charged and discharged at the best hours",
+    "Dispatch, price, commitment and storage charts, with every hour playable on the diagram",
+    "Runs entirely in the browser with PSA.js (a port of PyPSA) and the HiGHS solver: nothing is uploaded"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Adjie Brotosukmono",
+    "jobTitle": "Power Systems Engineer",
+    "url": "https://tool.adjiebrotots.com/"
+  },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I solve a unit commitment problem online for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open the ED/UC Simulator at https://tool.adjiebrotots.com/ed-uc-simulator/, draw the buses, lines, generators and loads, give each unit its cost, minimum output, start-up cost and minimum up and down times, and press Run dispatch. It builds the same mixed-integer problem PyPSA builds and solves it with HiGHS in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are the nodal prices (LMP) worked out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each price is the cost of serving one more MW at that bus in that hour, the dual of its power balance in a DC optimal power flow. A unit commitment has no duals, so it is solved again as a linear problem with the commitment held as found, the way electricity markets price it. The PJM 5-bus Quick Start reproduces the published prices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between economic dispatch and unit commitment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Economic dispatch shares the load among units that are all available, cheapest first, within their limits. Unit commitment also decides which units run in each hour, so it weighs start-up costs, minimum stable loading and minimum up and down times. The simulator solves both on the same network so you can compare them."
+      }
+    }
+  ]
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="../logos/logo.svg">
+<!-- The optimiser starts downloading with the page and never blocks it; its solver follows on the first run. -->
+<link rel="modulepreload" href="engine/psa-opt.min.js">
+<script src="../vendor/chart.umd.min.js"></script>
+<script src="../vendor/hammer.min.js"></script>
+<script src="../vendor/chartjs-plugin-zoom.min.js"></script>
+<link rel="stylesheet" href="../dark.css">
+<link rel="stylesheet" href="../light.css">
+<script>if(self!==top&&/(?:^#|&)embed=/.test(location.hash))document.documentElement.classList.add("abt-embed","abt-embed-wait");</script> <!-- an embedded chart says it is loading from the first paint (SharedShare) -->
+<link rel="stylesheet" href="../shared.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../tour-shared.css">
+</head>
+<body class="light">
+<div class="container">
+<section class="header card">
+  <div>
+    <h1><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.15em" height="1.15em" style="vertical-align:-0.18em;margin-right:.2em;flex-shrink:0" aria-hidden="true" focusable="false" class="tool-glyph" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path stroke="var(--accent)" d="M3 20.5h18"/> <path stroke="var(--accent)" d="M6 20.5v-5M10 20.5v-8M14 20.5v-6M18 20.5v-9.5"/> <path stroke="var(--accent2)" d="M3 9.5 7.5 7l4 2.5 4.5-6 5 3"/> </svg>ED/UC Simulator</h1>
+    <p><strong>Economic Dispatch &amp; Unit Commitment.</strong> Draw a network, decide which units run and how much each produces hour by hour, and read the nodal prices.</p>
+  </div>
+  <div class="header-right">
+    <a href="https://tool.adjiebrotots.com/" class="btn-theme btn-back">← Other Tools</a>
+    <button class="btn-theme" id="themeToggle">🌙 Dark</button>
+  </div>
+</section>
+
+<section class="layout">
+<aside class="controls card">
+  <div class="quick-start-row">
+    <span class="quick-start-label"><svg class="tico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.2 2.5 4.8 13.2h6L10 21.5l9.2-11.4h-6.6z"/></svg> Quick Start</span><span class="tip-icon" data-tip="Replaces the network with a worked example, sets how it is solved, and runs it. Change anything over the top of it.">?</span>
+    <div class="quick-start-btns">
+      <button class="quick-start-btn" data-preset="pjm5" data-tip="The PJM 5-bus system from Li and Bo (2010), dispatched over a day. At the 18:00 peak it reproduces the published nodal prices.">PJM 5-bus</button>
+      <button class="quick-start-btn" data-preset="uc3" data-tip="Coal, a combined cycle and a peaker on one bus through a day: who starts, who runs at minimum, and what it costs.">Three units</button>
+      <button class="quick-start-btn" data-preset="solar" data-tip="A solar farm, a battery and two gas units serving homes and shops. The battery moves midday sun into the evening peak.">Solar and battery</button>
+      <button class="quick-start-btn" data-preset="areas" data-tip="A windy north and a gas-fired south joined by a 250 MW HVDC link, over three days. Prices split when the link is full.">Two areas</button>
+    </div>
+  </div>
+  <div class="ctrl-scroll">
+  <div class="ctrl-tabs">
+    <button class="ctrl-tab active" data-tab="element"><svg class="tico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M12 6v4"/><circle cx="12" cy="15" r="5"/></svg><span>Element</span></button>
+    <button class="ctrl-tab" data-tab="dispatch"><svg class="tico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20h17"/><path d="M6.5 20v-5.5M11 20v-9M15.5 20v-6.5"/><path d="M19.5 4v5M17 6.5h5"/></svg><span>Dispatch</span></button>
+    <button class="ctrl-tab" data-tab="display"><svg class="tico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5h9M4 12h16M4 17.5h11"/><circle cx="17.5" cy="6.5" r="2.2"/></svg><span>Labels</span></button>
+  </div>
+
+  <!-- ── Element: the inspector. Its fields edit the network, which the
+       mini cache saves as a whole, so none of them is saved on its own. ── -->
+  <div class="ctrl-panel active" id="tab-element" data-no-persist>
+    <div id="inspector" data-no-abbr></div>
+  </div>
+
+  <!-- ── Dispatch: what PSA.js is asked to solve ── -->
+  <div class="ctrl-panel" id="tab-dispatch">
+    <div class="field-row">
+      <div class="field-label">Currency symbol</div>
+      <select class="sel-input" id="edCur" data-currency-symbols></select>
+    </div>
+    <div class="field-group">
+      <div class="group-title">Problem</div>
+      <div class="field-row">
+        <div class="field-label"><span class="tip-wrap">Solve as <i class="tip-icon" data-tip-options data-tip="" id="edModeTip">?</i></span></div>
+        <select class="sel-input" id="edMode">
+          <option value="uc">Unit commitment, mixed-integer</option>
+          <option value="lin">Unit commitment, linear relaxation</option>
+          <option value="edm">Economic dispatch</option>
+          <option value="ed">Economic dispatch, no minimum output</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field-label"><span class="tip-wrap">Horizon <i class="tip-icon" data-tip="Solved together in one-hour steps, up to 30 days. Storage and commitment carry over from one hour to the next.">?</i></span></div>
+        <div class="span-row">
+          <input class="txt-input" id="edSpan" type="number" inputmode="numeric" min="1" max="30" step="1" value="1" aria-label="Horizon length"/>
+          <select class="sel-input" id="edSpanUnit" aria-label="Horizon unit">
+            <option value="h">hours</option>
+            <option value="d" selected>days</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label"><span class="tip-wrap">First hour <i class="tip-icon" data-tip="When the horizon starts. Built-in demand profiles follow the weekday, lower at the weekend.">?</i></span></div>
+        <input class="txt-input" id="edStart" type="datetime-local" min="1900-01-01T00:00" max="2200-12-31T23:00" step="3600" value="2026-01-01T00:00"/>
+      </div>
+    </div>
+    <div class="field-group" id="profFileGroup">
+      <div class="group-title"><span class="tip-wrap">Profiles from a file <i class="tip-icon" data-tip="One row per hour, one column per load or generator named as in the template. A column with values makes it Custom; a missing column or blank cell keeps its profile."">?</i></span></div>
+      <div class="prof-file">
+        <button type="button" class="btn-secondary btn-sm" data-icon="open" id="profAllBtn" title="Open an Excel or CSV file and take the hours of every load and generator it names">Open file</button>
+        <button type="button" class="btn-secondary btn-sm" id="tplCsvBtn" title="A CSV with a row for each hour of the horizon and a column for each load and generator, filled with its profile now">⬇ Template (.csv)</button>
+      </div>
+      <div class="up-msg" id="profAllMsg" role="status" aria-live="polite" hidden></div>
+    </div>
+    <div class="field-group">
+      <div class="group-title">Network</div>
+      <div class="toggle-row">
+        <div class="toggle-label"><span class="tip-wrap">Line limits <i class="tip-icon" data-tip="" id="edLimitsTip">?</i></span></div>
+        <label class="toggle-switch"><input type="checkbox" id="edLimits" checked/><span class="toggle-track"><span class="toggle-knob"></span></span></label>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="group-title">Load shedding</div>
+      <div class="toggle-row">
+        <div class="toggle-label"><span class="tip-wrap">Allow load shedding <i class="tip-icon" data-tip="Load the units cannot reach is cut at the value of lost load instead of making the problem infeasible.">?</i></span></div>
+        <label class="toggle-switch"><input type="checkbox" id="edShed" checked/><span class="toggle-track"><span class="toggle-knob"></span></span></label>
+      </div>
+      <div class="field-row" id="vollRow">
+        <div class="field-label"><span class="tip-wrap">Value of lost load (VoLL) <i class="tip-icon" data-tip="What a MWh not served costs. It caps the price, since shedding is always the last resort.">?</i></span></div>
+        <div class="affix-wrap"><span class="prefix" id="vollCur">$</span><input class="affix-input has-suffix" id="edVoll" type="number" inputmode="decimal" min="100" max="100000" step="100" value="10000"/><span class="suffix">/MWh</span></div>
+      </div>
+    </div>
+    <div class="field-group" id="solverGroup">
+      <div class="group-title">Solver</div>
+      <div class="field-row" id="gapRow">
+        <div class="field-label"><span class="tip-wrap">Optimality gap <i class="tip-icon" data-tip="HiGHS stops once its answer is proven within this share of the best possible cost.">?</i></span></div>
+        <select class="sel-input" id="edGap">
+          <option value="0.0001" selected>0.01%</option>
+          <option value="0.001">0.1%</option>
+          <option value="0.01">1%</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field-label">Time limit</div>
+        <select class="sel-input" id="edTime">
+          <option value="10">10 s</option>
+          <option value="30">30 s</option>
+          <option value="60" selected>60 s</option>
+          <option value="300">5 min</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Labels: what the diagram shows at each kind of element ── -->
+  <div class="ctrl-panel" id="tab-display">
+    <p class="note">What each kind of element shows on the diagram. An element can override this in its own panel.</p>
+    <div id="labelMatrix"></div>
+  </div>
+  </div><!-- /ctrl-scroll -->
+  <div class="btn-row">
+    <p class="stale-note" id="staleNote" role="status">The network changed. Press Run dispatch to solve it.</p>
+    <button class="btn-primary" id="runBtn" style="flex:1" title="Run dispatch (Ctrl+Enter)">▶ Run dispatch</button>
+  </div>
+</aside>
+
+<main>
+  <section class="chart-card card sld-card" id="sldCard">
+    <div class="chart-head">
+      <h2 id="sldTitle" data-no-abbr>Single-line diagram</h2>
+      <div class="btn-cluster">
+        <button class="btn-secondary btn-sm" id="svgBtn" title="Download this diagram as SVG">⬇ SVG</button>
+        <button class="btn-secondary btn-sm" id="pngBtn" title="Download this diagram as PNG">⬇ PNG</button>
+        <button class="btn-secondary btn-sm" id="gifBtn" title="Download the animated diagram as GIF" hidden>⬇ GIF</button>
+        <button class="btn-secondary btn-sm btn-icon" id="copyBtn" title="Copy to clipboard">⧉</button>
+        <button class="btn-secondary btn-sm btn-icon" id="fitBtn" title="Reset view">⟳</button>
+      </div>
+    </div>
+    <div class="sub" id="sldSub" aria-live="polite"></div>
+    <div class="sld-viewbar">
+      <div class="hour-ctl">
+        <button class="btn-secondary btn-sm btn-icon" id="playBtn" type="button" title="Play the hours" aria-label="Play the hours" aria-pressed="false">▶</button>
+        <label class="hour-field" for="edHour">Hour</label>
+        <input type="range" id="edHour" min="0" max="23" step="1" value="18" aria-describedby="hourOut"/>
+        <output class="hour-out" id="hourOut" for="edHour">18:00</output>
+      </div>
+      <label class="flow-toggle"><input type="checkbox" id="animP" checked/><svg class="flow-key flow-key-p" viewBox="0 0 32 10" aria-hidden="true" focusable="false"></svg><span class="tip-wrap">Power flow</span></label>
+      <label class="viewbar-field"><span class="tip-wrap">Colour by</span>
+        <select class="sel-input" id="colourBy">
+          <option value="none">Nothing</option>
+          <option value="price">Nodal price</option>
+          <option value="loading">Branch loading</option>
+          <option value="both" selected>Both</option>
+        </select>
+      </label>
+    </div>
+    <div class="sld-body">
+      <div class="sld-palette sld-edit-only" id="palette" role="toolbar" aria-label="Add to the diagram" data-no-abbr></div>
+      <div class="sld-stage" id="sldStage" data-share-chart data-no-abbr>
+        <svg id="sldSvg" xmlns="http://www.w3.org/2000/svg" role="img" tabindex="0" aria-label="Single-line diagram. Arrow keys move the selection, Delete removes it, R turns a bus, Ctrl+A selects everything."></svg>
+        <button class="sld-full" id="sldFull" type="button" title="Enlarge the diagram to fill the screen" aria-label="Enlarge the diagram to fill the screen" aria-pressed="false"><span class="zf-open" aria-hidden="true">⤢</span><svg class="zf-close" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3.5V9H3.5M15 3.5V9h5.5M9 20.5V15H3.5M15 20.5V15h5.5"/></svg></button>
+        <div class="sld-zoom">
+          <button class="btn-secondary btn-sm btn-icon" id="zoomIn" type="button" title="Zoom in" aria-label="Zoom in">+</button>
+          <button class="btn-secondary btn-sm btn-icon" id="zoomOut" type="button" title="Zoom out" aria-label="Zoom out">−</button>
+        </div>
+        <div class="sld-hint" id="sldHint" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="hover-box" id="hoverBox">Hover or tap an element to read its values.</div>
+  </section>
+
+  <section class="metrics ed-result">
+    <div class="metric card">
+      <div class="label"><span class="tip-wrap">Operating cost <i class="tip-icon" data-tip="What the units cost to run over the horizon: energy at their marginal cost, plus start-ups, shut-downs, stand-by and any load shed.">?</i></span></div>
+      <div class="value" id="mCost">–</div>
+      <div class="sub" id="mCostSub"></div>
+    </div>
+    <div class="metric card">
+      <div class="label"><span class="tip-wrap">Average price <i class="tip-icon" data-tip="The nodal prices averaged over every hour and bus, weighted by the load there.">?</i></span></div>
+      <div class="value" id="mPrice">–</div>
+      <div class="sub" id="mPriceSub"></div>
+    </div>
+    <div class="metric card">
+      <div class="label" id="mUnitsLabel">Unit Commitment</div>
+      <div class="value" id="mUnits">–</div>
+      <div class="sub" id="mUnitsSub"></div>
+    </div>
+    <div class="metric card">
+      <div class="label"><span class="tip-wrap">Congestion <i class="tip-icon" data-tip="The branch that spends longest at its limit. A full branch is what splits one price into many.">?</i></span></div>
+      <div class="value" id="mCong">–</div>
+      <div class="sub" id="mCongSub"></div>
+    </div>
+  </section>
+
+  <section class="chart-card card ed-result" id="dispCard">
+    <div class="chart-head">
+      <h2>Dispatch</h2>
+      <div class="btn-cluster">
+        <button class="btn-secondary btn-sm" id="dispSvgBtn" title="Download this chart as SVG">⬇ SVG</button>
+        <button class="btn-secondary btn-sm" id="dispPngBtn" title="Download this chart as PNG">⬇ PNG</button>
+        <button class="btn-secondary btn-sm btn-icon" id="dispCopyBtn" title="Copy PNG to clipboard">⧉</button>
+        <button class="btn-secondary btn-sm btn-icon" id="dispZoomBtn" title="Reset zoom">⟳</button>
+      </div>
+    </div>
+    <div class="sub" id="dispSub"></div>
+    <div class="legend" id="dispLegend" data-no-abbr></div>
+    <div class="canvas-wrap"><canvas id="dispCanvas"></canvas></div>
+    <div class="hover-box" id="dispHover">Hover to read an hour. Click to show it on the diagram.</div>
+  </section>
+
+  <section class="chart-card card ed-result" id="priceCard">
+    <div class="chart-head">
+      <h2>Nodal prices</h2>
+      <div class="btn-cluster">
+        <button class="btn-secondary btn-sm" id="priceSvgBtn" title="Download this chart as SVG">⬇ SVG</button>
+        <button class="btn-secondary btn-sm" id="pricePngBtn" title="Download this chart as PNG">⬇ PNG</button>
+        <button class="btn-secondary btn-sm btn-icon" id="priceCopyBtn" title="Copy PNG to clipboard">⧉</button>
+        <button class="btn-secondary btn-sm btn-icon" id="priceZoomBtn" title="Reset zoom">⟳</button>
+      </div>
+    </div>
+    <div class="sub" id="priceSub"></div>
+    <div class="legend" id="priceLegend" data-no-abbr></div>
+    <div class="canvas-wrap"><canvas id="priceCanvas"></canvas></div>
+    <div class="hover-box" id="priceHover">Hover to read an hour. Click to show it on the diagram.</div>
+  </section>
+
+  <section class="chart-card card ed-result" id="commitCard">
+    <div class="chart-head">
+      <h2>Unit Commitment</h2>
+      <div class="btn-cluster">
+        <button class="btn-secondary btn-sm" id="commitSvgBtn" title="Download this chart as SVG">⬇ SVG</button>
+        <button class="btn-secondary btn-sm" id="commitPngBtn" title="Download this chart as PNG">⬇ PNG</button>
+        <button class="btn-secondary btn-sm btn-icon" id="commitCopyBtn" title="Copy PNG to clipboard">⧉</button>
+        <button class="btn-secondary btn-sm btn-icon" id="commitZoomBtn" title="Reset zoom">⟳</button>
+      </div>
+    </div>
+    <div class="sub" id="commitSub"></div>
+    <div class="legend" id="commitLegend" data-no-abbr></div>
+    <div class="canvas-wrap commit-wrap"><canvas id="commitCanvas"></canvas></div>
+    <div class="hover-box" id="commitHover">Hover to read a unit's hour. Click to show it on the diagram.</div>
+  </section>
+
+  <section class="chart-card card ed-result" id="storeCard">
+    <div class="chart-head">
+      <h2>Storage</h2>
+      <div class="btn-cluster">
+        <button class="btn-secondary btn-sm" id="storeSvgBtn" title="Download this chart as SVG">⬇ SVG</button>
+        <button class="btn-secondary btn-sm" id="storePngBtn" title="Download this chart as PNG">⬇ PNG</button>
+        <button class="btn-secondary btn-sm btn-icon" id="storeCopyBtn" title="Copy PNG to clipboard">⧉</button>
+        <button class="btn-secondary btn-sm btn-icon" id="storeZoomBtn" title="Reset zoom">⟳</button>
+      </div>
+    </div>
+    <div class="sub" id="storeSub"></div>
+    <label class="viewbar-field store-pick" id="storePickWrap" hidden>Storage unit
+      <select class="sel-input" id="storePick"></select>
+    </label>
+    <div class="legend" id="storeLegend" data-no-abbr></div>
+    <div class="canvas-wrap"><canvas id="storeCanvas"></canvas></div>
+    <div class="hover-box" id="storeHover">Hover to read an hour. Click to show it on the diagram.</div>
+  </section>
+
+  <section class="detail-section card ed-result" id="tablesCard">
+    <div class="detail-head">
+      <h3>Results by element</h3>
+      <div class="seg-group" id="tableTabs" role="group" aria-label="Which table">
+        <button class="seg-btn active" type="button" data-val="unit">Units</button>
+        <button class="seg-btn" type="button" data-val="bus">Buses</button>
+        <button class="seg-btn" type="button" data-val="branch">Branches</button>
+        <button class="seg-btn" type="button" data-val="hour">Hours</button>
+      </div>
+      <div class="btn-cluster">
+        <button class="btn-secondary btn-sm" id="csvBtn" title="Download this table as CSV">⬇ CSV</button>
+      </div>
+    </div>
+    <p class="unit-note" id="tableUnits"></p>
+    <div class="table-wrap" id="tableWrap" data-no-abbr></div>
+  </section>
+
+  <section class="assumes-card card ed-result">
+    <h2>What this assumes</h2>
+    <ul class="assumptions" id="assumptions"></ul>
+  </section>
+</main>
+</section>
+</div>
+<footer class="page-footer">
+  <section class="page-footer-info">
+    <p class="footer-collab"><strong>A hobby project, open to collaboration.</strong> This tool is free and earns me no revenue. If your organisation could use a custom tool or training, <a href="mailto:adjiebrotots@gmail.com?subject=Collaboration">let’s talk</a>. Bugs or questions: <a href="mailto:adjiebrotots@gmail.com">adjiebrotots@gmail.com</a> 🙂</p>
+    <p>
+      <strong>Disclaimer:</strong> This tool is provided on an “as is” and “as available” basis, free of charge, without any representations or warranties of any kind, whether express or implied. Any outputs, results, interpretations, or decisions made using this tool are solely the responsibility of the user. Its dispatches and prices are indicative: check them with a validated market or production cost model and qualified engineering judgement before any operating, trading or investment decision.
+    </p>
+    <p>
+      The optimisation engine is <a href="https://github.com/adjiebrotot/PSA.js" target="_blank" rel="noopener">PSA.js</a>, a JavaScript port of <a href="https://github.com/PyPSA/PyPSA" target="_blank" rel="noopener">PyPSA</a>, and the solver is <a href="https://highs.dev" target="_blank" rel="noopener">HiGHS</a> through <a href="https://github.com/lovasoa/highs-js" target="_blank" rel="noopener">highs-js</a>, all used under the <a href="engine/LICENSE.txt" target="_blank" rel="noopener">MIT licence</a>.
+    </p>
+    <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border);display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:4px;align-items:center">
+      <img src="../logos/australian.png" alt="Australian Made" style="grid-row:1/3;height:36px;width:auto;object-fit:contain">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="../logos/gpl.png" alt="GNU GPL" style="height:16px;width:auto;flex-shrink:0;border-radius:3px">
+        <span style="color:var(--muted);font-size:0.76rem">Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU GPL</a>: free to use, modify, and share with source code disclosed.</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="../logos/indonesian.png" alt="100% Indonesia" style="height:16px;width:auto;flex-shrink:0;border-radius:3px">
+        <span style="color:var(--muted);font-size:0.76rem">Made in Australia by Indonesian engineer.</span>
+      </div>
+    </div>
+  </section>
+</footer>
+
+<script src="../dropdown.js"></script>
+<script src="../shared.js"></script>
+<script src="ed-core.js"></script>
+<script src="ed-draw.js"></script>
+<script src="ed-editor.js"></script>
+<script src="ed-charts.js"></script>
+<script src="sunflex-cases.js"></script>
+<script src="script.js"></script>
+<script src="sunflex-boot.js"></script>
+<script src="tour.js"></script>
+<!-- SUNFLEX: dentro del iframe de Streamlit el tour interactivo tapa el
+     diagrama y no cabe en la ventana; se marca como visto antes de que
+     tour-shared.js decida mostrarlo. Sigue disponible abriendo la
+     herramienta en una pestaña propia sin ?case=. -->
+<script>
+  try {
+    if (window.self !== window.top || new URLSearchParams(location.search).has("case")) {
+      localStorage.setItem("educ-tour-v1-seen", "1");
+    }
+  } catch (e) {}
+</script>
+<script src="../tour-shared.js"></script>
+</body>
+</html>

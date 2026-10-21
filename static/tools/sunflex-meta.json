@@ -1,0 +1,553 @@
+{
+"Castilla · base": {
+"nota": "Capacidad de conducción habilitada 10,83 MW · vertimiento 5,58 MWh/día (2.037 MWh/año) · autoconsumo 94,2 % · gasto 30.599 kCOP/día. Hora 12:00: tensión PV 0.9846 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 10.83,
+"vert": 5.58,
+"auto": 94.2,
+"gasto": 30599.4,
+"caso": "castilla",
+"esc": "base",
+"py": {
+"v": {
+"PV": 0.9846,
+"CAMPO": 0.9827,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0154,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 9.8,
+"p_pv": 10.83,
+"compra_slack": 1.985,
+"ok": true
+}
+},
+"Castilla · venta": {
+"nota": "Capacidad de conducción habilitada 10,83 MW · vertimiento 5,00 MWh/día (1.825 MWh/año) · autoconsumo 94,8 % · gasto 30.599 kCOP/día. Hora 12:00: tensión PV 0.9846 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 10.83,
+"vert": 5.0,
+"auto": 94.8,
+"gasto": 30599.4,
+"caso": "castilla",
+"esc": "venta",
+"py": {
+"v": {
+"PV": 0.9846,
+"CAMPO": 0.9827,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0154,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 9.8,
+"p_pv": 10.83,
+"compra_slack": 1.985,
+"ok": true
+}
+},
+"Castilla · bess_std": {
+"nota": "Capacidad de conducción habilitada 10,83 MW · vertimiento 4,71 MWh/día (1.719 MWh/año) · autoconsumo 95,1 % · gasto 30.920 kCOP/día. Hora 12:00: tensión PV 0.9845 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 10.83,
+"vert": 4.71,
+"auto": 95.1,
+"gasto": 30920.4,
+"caso": "castilla",
+"esc": "bess_std",
+"py": {
+"v": {
+"PV": 0.9845,
+"CAMPO": 0.9827,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0154,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 9.8,
+"p_pv": 10.884,
+"compra_slack": 1.985,
+"ok": true
+}
+},
+"Castilla · piloto": {
+"nota": "Capacidad de conducción habilitada 10,83 MW · vertimiento 2,74 MWh/día (1.000 MWh/año) · autoconsumo 97,1 % · gasto 29.509 kCOP/día. Hora 12:00: tensión PV 0.9845 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 10.83,
+"vert": 2.74,
+"auto": 97.1,
+"gasto": 29509.3,
+"caso": "castilla",
+"esc": "piloto",
+"py": {
+"v": {
+"PV": 0.9845,
+"CAMPO": 0.9827,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0154,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 9.8,
+"p_pv": 10.884,
+"compra_slack": 1.985,
+"ok": true
+}
+},
+"Castilla · escala": {
+"nota": "Capacidad de conducción habilitada 10,83 MW · vertimiento 0,55 MWh/día (201 MWh/año) · autoconsumo 99,4 % · gasto 29.097 kCOP/día. Hora 12:00: tensión PV 0.987 pu, alimentador 114.2 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 10.83,
+"vert": 0.55,
+"auto": 99.4,
+"gasto": 29097.1,
+"caso": "castilla",
+"esc": "escala",
+"py": {
+"v": {
+"PV": 0.987,
+"CAMPO": 0.9848,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0177,
+"linea_carga_pct": 114.2,
+"traf_carga_pct": 5.4,
+"p_pv": 12.695,
+"compra_slack": -1.096,
+"ok": true
+}
+},
+"San Fernando · base": {
+"nota": "Capacidad de conducción habilitada 29,3 MW · vertimiento 13,98 MWh/día (5.103 MWh/año) · autoconsumo 94,6 % · gasto 92.077 kCOP/día. Hora 12:00: tensión PV 0.988 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 29.3,
+"vert": 13.98,
+"auto": 94.6,
+"gasto": 92076.6,
+"caso": "sanfernando",
+"esc": "base",
+"py": {
+"v": {
+"PV": 0.988,
+"CAMPO": 0.983,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0926,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 6.9,
+"p_pv": 29.3,
+"compra_slack": 3.593,
+"ok": true
+}
+},
+"San Fernando · venta": {
+"nota": "Capacidad de conducción habilitada 29,3 MW · vertimiento 13,98 MWh/día (5.103 MWh/año) · autoconsumo 94,6 % · gasto 91.008 kCOP/día. Hora 12:00: tensión PV 0.988 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 29.3,
+"vert": 13.98,
+"auto": 94.6,
+"gasto": 91008.0,
+"caso": "sanfernando",
+"esc": "venta",
+"py": {
+"v": {
+"PV": 0.988,
+"CAMPO": 0.983,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0926,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 6.9,
+"p_pv": 29.3,
+"compra_slack": 3.593,
+"ok": true
+}
+},
+"San Fernando · bess_std": {
+"nota": "Capacidad de conducción habilitada 29,3 MW · vertimiento 13,61 MWh/día (4.968 MWh/año) · autoconsumo 94,8 % · gasto 90.909 kCOP/día. Hora 12:00: tensión PV 0.988 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 29.3,
+"vert": 13.61,
+"auto": 94.8,
+"gasto": 90908.8,
+"caso": "sanfernando",
+"esc": "bess_std",
+"py": {
+"v": {
+"PV": 0.988,
+"CAMPO": 0.983,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0926,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 6.9,
+"p_pv": 29.354,
+"compra_slack": 3.593,
+"ok": true
+}
+},
+"San Fernando · piloto": {
+"nota": "Capacidad de conducción habilitada 29,3 MW · vertimiento 10,52 MWh/día (3.840 MWh/año) · autoconsumo 96,0 % · gasto 89.341 kCOP/día. Hora 12:00: tensión PV 0.988 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 29.3,
+"vert": 10.52,
+"auto": 96.0,
+"gasto": 89341.2,
+"caso": "sanfernando",
+"esc": "piloto",
+"py": {
+"v": {
+"PV": 0.988,
+"CAMPO": 0.983,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0926,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 6.9,
+"p_pv": 29.354,
+"compra_slack": 3.593,
+"ok": true
+}
+},
+"San Fernando · escala": {
+"nota": "Capacidad de conducción habilitada 29,3 MW · vertimiento 3,86 MWh/día (1.409 MWh/año) · autoconsumo 98,5 % · gasto 88.104 kCOP/día. Hora 12:00: tensión PV 0.9894 pu, alimentador 107.4 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 29.3,
+"vert": 3.86,
+"auto": 98.5,
+"gasto": 88103.9,
+"caso": "sanfernando",
+"esc": "escala",
+"py": {
+"v": {
+"PV": 0.9894,
+"CAMPO": 0.984,
+"SIN": 1.0
+},
+"perdidas_mw": 0.1036,
+"linea_carga_pct": 107.4,
+"traf_carga_pct": 1.5,
+"p_pv": 32.345,
+"compra_slack": -0.762,
+"ok": true
+}
+},
+"Brisas · base": {
+"nota": "Capacidad de conducción habilitada 13 MW · vertimiento 5,98 MWh/día (2.183 MWh/año) · autoconsumo 94,8 % · gasto 66.535 kCOP/día. Hora 12:00: tensión PV 0.9858 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 13.0,
+"vert": 5.98,
+"auto": 94.8,
+"gasto": 66535.4,
+"caso": "brisas",
+"esc": "base",
+"py": {
+"v": {
+"PV": 0.9858,
+"CAMPO": 0.9836,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0201,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 6.2,
+"p_pv": 13.0,
+"compra_slack": 1.42,
+"ok": true
+}
+},
+"Brisas · venta": {
+"nota": "Capacidad de conducción habilitada 13 MW · vertimiento 5,98 MWh/día (2.183 MWh/año) · autoconsumo 94,8 % · gasto 66.535 kCOP/día. Hora 12:00: tensión PV 0.9858 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 13.0,
+"vert": 5.98,
+"auto": 94.8,
+"gasto": 66535.4,
+"caso": "brisas",
+"esc": "venta",
+"py": {
+"v": {
+"PV": 0.9858,
+"CAMPO": 0.9836,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0201,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 6.2,
+"p_pv": 13.0,
+"compra_slack": 1.42,
+"ok": true
+}
+},
+"Brisas · bess_std": {
+"nota": "Capacidad de conducción habilitada 13 MW · vertimiento 5,52 MWh/día (2.015 MWh/año) · autoconsumo 95,2 % · gasto 66.455 kCOP/día. Hora 12:00: tensión PV 0.9858 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 13.0,
+"vert": 5.52,
+"auto": 95.2,
+"gasto": 66455.3,
+"caso": "brisas",
+"esc": "bess_std",
+"py": {
+"v": {
+"PV": 0.9858,
+"CAMPO": 0.9835,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0201,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 6.2,
+"p_pv": 13.054,
+"compra_slack": 1.42,
+"ok": true
+}
+},
+"Brisas · piloto": {
+"nota": "Capacidad de conducción habilitada 13 MW · vertimiento 4,02 MWh/día (1.467 MWh/año) · autoconsumo 96,5 % · gasto 65.700 kCOP/día. Hora 12:00: tensión PV 0.9858 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 13.0,
+"vert": 4.02,
+"auto": 96.5,
+"gasto": 65699.6,
+"caso": "brisas",
+"esc": "piloto",
+"py": {
+"v": {
+"PV": 0.9858,
+"CAMPO": 0.9835,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0201,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 6.2,
+"p_pv": 13.054,
+"compra_slack": 1.42,
+"ok": true
+}
+},
+"Brisas · escala": {
+"nota": "Capacidad de conducción habilitada 13 MW · vertimiento 0,96 MWh/día (350 MWh/año) · autoconsumo 99,2 % · gasto 65.139 kCOP/día. Hora 12:00: tensión PV 0.988 pu, alimentador 111.5 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 13.0,
+"vert": 0.96,
+"auto": 99.2,
+"gasto": 65139.0,
+"caso": "brisas",
+"esc": "escala",
+"py": {
+"v": {
+"PV": 0.988,
+"CAMPO": 0.9855,
+"SIN": 1.0
+},
+"perdidas_mw": 0.0247,
+"linea_carga_pct": 111.5,
+"traf_carga_pct": 11.3,
+"p_pv": 14.931,
+"compra_slack": -2.575,
+"ok": true
+}
+},
+"Rubiales · base": {
+"nota": "Capacidad de conducción habilitada 60,94 MW · vertimiento 15,62 MWh/día (5.701 MWh/año) · autoconsumo 96,4 % · gasto 221.202 kCOP/día. Hora 12:00: tensión PV 0.9927 pu, alimentador 81.4 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 60.94,
+"vert": 15.62,
+"auto": 96.4,
+"gasto": 221202.1,
+"caso": "rubiales",
+"esc": "base",
+"py": {
+"v": {
+"PV": 0.9927,
+"CAMPO": 0.9843,
+"SIN": 1.0
+},
+"perdidas_mw": 0.2488,
+"linea_carga_pct": 81.4,
+"traf_carga_pct": 0.3,
+"p_pv": 49.6,
+"compra_slack": 0.249,
+"ok": true
+}
+},
+"Rubiales · venta": {
+"nota": "Capacidad de conducción habilitada 60,94 MW · vertimiento 6,90 MWh/día (2.518 MWh/año) · autoconsumo 98,4 % · gasto 221.202 kCOP/día. Hora 12:00: tensión PV 0.994 pu, alimentador 86.3 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 60.94,
+"vert": 6.9,
+"auto": 98.4,
+"gasto": 221202.1,
+"caso": "rubiales",
+"esc": "venta",
+"py": {
+"v": {
+"PV": 0.994,
+"CAMPO": 0.9851,
+"SIN": 1.0
+},
+"perdidas_mw": 0.2776,
+"linea_carga_pct": 86.3,
+"traf_carga_pct": 3.4,
+"p_pv": 52.6,
+"compra_slack": -2.722,
+"ok": true
+}
+},
+"Rubiales · bess_std": {
+"nota": "Capacidad de conducción habilitada 60,94 MW · vertimiento 15,19 MWh/día (5.544 MWh/año) · autoconsumo 96,5 % · gasto 221.122 kCOP/día. Hora 12:00: tensión PV 0.9927 pu, alimentador 81.4 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 60.94,
+"vert": 15.19,
+"auto": 96.5,
+"gasto": 221122.1,
+"caso": "rubiales",
+"esc": "bess_std",
+"py": {
+"v": {
+"PV": 0.9927,
+"CAMPO": 0.9843,
+"SIN": 1.0
+},
+"perdidas_mw": 0.2488,
+"linea_carga_pct": 81.4,
+"traf_carga_pct": 0.3,
+"p_pv": 49.654,
+"compra_slack": 0.249,
+"ok": true
+}
+},
+"Rubiales · piloto": {
+"nota": "Capacidad de conducción habilitada 60,94 MW · vertimiento 9,05 MWh/día (3.303 MWh/año) · autoconsumo 97,9 % · gasto 218.957 kCOP/día. Hora 12:00: tensión PV 0.9954 pu, alimentador 90.8 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 60.94,
+"vert": 9.05,
+"auto": 97.9,
+"gasto": 218956.8,
+"caso": "rubiales",
+"esc": "piloto",
+"py": {
+"v": {
+"PV": 0.9954,
+"CAMPO": 0.9861,
+"SIN": 1.0
+},
+"perdidas_mw": 0.3121,
+"linea_carga_pct": 90.8,
+"traf_carga_pct": 14.1,
+"p_pv": 55.372,
+"compra_slack": -11.123,
+"ok": true
+}
+},
+"Rubiales · escala": {
+"nota": "Capacidad de conducción habilitada 60,94 MW · vertimiento 0,00 MWh/día (0 MWh/año) · autoconsumo 100,0 % · gasto 217.916 kCOP/día. Hora 12:00: tensión PV 0.9965 pu, alimentador 95.2 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 60.94,
+"vert": 0.0,
+"auto": 100.0,
+"gasto": 217915.8,
+"caso": "rubiales",
+"esc": "escala",
+"py": {
+"v": {
+"PV": 0.9965,
+"CAMPO": 0.9867,
+"SIN": 1.0
+},
+"perdidas_mw": 0.3443,
+"linea_carga_pct": 95.2,
+"traf_carga_pct": 17.1,
+"p_pv": 58.034,
+"compra_slack": -13.524,
+"ok": true
+}
+},
+"Refinerías · base": {
+"nota": "Capacidad de conducción habilitada 20,54 MW · vertimiento 4,00 MWh/día (1.460 MWh/año) · autoconsumo 97,6 % · gasto 1.422.352 kCOP/día. Hora 12:00: tensión PV 0.979 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 20.54,
+"vert": 4.0,
+"auto": 97.6,
+"gasto": 1422352.0,
+"caso": "refinerias",
+"esc": "base",
+"py": {
+"v": {
+"PV": 0.979,
+"CAMPO": 0.968,
+"SIN": 1.0
+},
+"perdidas_mw": 0.9421,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 58.8,
+"p_pv": 20.54,
+"compra_slack": 216.402,
+"ok": true
+}
+},
+"Refinerías · venta": {
+"nota": "Capacidad de conducción habilitada 20,54 MW · vertimiento 4,00 MWh/día (1.460 MWh/año) · autoconsumo 97,6 % · gasto 1.422.352 kCOP/día. Hora 12:00: tensión PV 0.979 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 20.54,
+"vert": 4.0,
+"auto": 97.6,
+"gasto": 1422352.0,
+"caso": "refinerias",
+"esc": "venta",
+"py": {
+"v": {
+"PV": 0.979,
+"CAMPO": 0.968,
+"SIN": 1.0
+},
+"perdidas_mw": 0.9421,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 58.8,
+"p_pv": 20.54,
+"compra_slack": 216.402,
+"ok": true
+}
+},
+"Refinerías · bess_std": {
+"nota": "Capacidad de conducción habilitada 20,54 MW · vertimiento 3,59 MWh/día (1.310 MWh/año) · autoconsumo 97,9 % · gasto 1.422.262 kCOP/día. Hora 12:00: tensión PV 0.979 pu, alimentador 100.0 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 20.54,
+"vert": 3.59,
+"auto": 97.9,
+"gasto": 1422262.5,
+"caso": "refinerias",
+"esc": "bess_std",
+"py": {
+"v": {
+"PV": 0.979,
+"CAMPO": 0.968,
+"SIN": 1.0
+},
+"perdidas_mw": 0.9421,
+"linea_carga_pct": 100.0,
+"traf_carga_pct": 58.8,
+"p_pv": 20.594,
+"compra_slack": 216.402,
+"ok": true
+}
+},
+"Refinerías · piloto": {
+"nota": "Capacidad de conducción habilitada 20,54 MW · vertimiento 0,00 MWh/día (0 MWh/año) · autoconsumo 100,0 % · gasto 1.419.701 kCOP/día. Hora 12:00: tensión PV 0.9802 pu, alimentador 109.5 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 20.54,
+"vert": 0.0,
+"auto": 100.0,
+"gasto": 1419701.2,
+"caso": "refinerias",
+"esc": "piloto",
+"py": {
+"v": {
+"PV": 0.9802,
+"CAMPO": 0.9682,
+"SIN": 1.0
+},
+"perdidas_mw": 0.9428,
+"linea_carga_pct": 109.5,
+"traf_carga_pct": 57.7,
+"p_pv": 22.488,
+"compra_slack": 212.507,
+"ok": true
+}
+},
+"Refinerías · escala": {
+"nota": "Capacidad de conducción habilitada 20,54 MW · vertimiento 0,00 MWh/día (0 MWh/año) · autoconsumo 100,0 % · gasto 1.419.152 kCOP/día. Hora 12:00: tensión PV 0.9802 pu, alimentador 109.5 % de carga. Hoja generada por sunflex_model.py (PyPSA 1.4.0 + HiGHS), no editada a mano.",
+"cap_mw": 20.54,
+"vert": 0.0,
+"auto": 100.0,
+"gasto": 1419151.7,
+"caso": "refinerias",
+"esc": "escala",
+"py": {
+"v": {
+"PV": 0.9802,
+"CAMPO": 0.9682,
+"SIN": 1.0
+},
+"perdidas_mw": 0.9428,
+"linea_carga_pct": 109.5,
+"traf_carga_pct": 57.7,
+"p_pv": 22.488,
+"compra_slack": 212.507,
+"ok": true
+}
+},
+"_default": "Castilla · piloto"
+}
